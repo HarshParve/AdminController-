@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data</title>
+    <style>
+        table, th, tr, td{
+            border: 2px, solid, black;
+        }
+    </style>
+</head>
+<body>
+    <h3>For Creating New User : </h3>
+    <form method="get" action="/user/new">
+        <button>New User</button>
+    </form>
+    <br>
+
+    <table>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email ID</th>
+        <th>Password</th>
+        <th>Action</th>
+
+        <tr>
+           
+            
+            <%for(user of result ){%>
+                
+            
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.username %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.password %></td>
+
+                    <td>
+                        <form method="get" action="/user/<%=user.id%>/edit">
+                            <button>Edit</button>
+                        </form>
+                    </td>
+
+                    <td>
+                        <form method="get" action="/user/<%=user.id%>/delete">
+                            <button>Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                
+
+            <% } %>
+
+        </tr>
+    </table>
+    
+</body>
+</html>
+
