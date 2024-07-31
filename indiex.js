@@ -35,6 +35,8 @@ app.get("/", (req, res) => {
       }
 
       let count = result[0]["COUNT(*)"];
+      //this will render the home page
+      //ye
       res.render("home.ejs", { count });
     });
   } catch (error) {
